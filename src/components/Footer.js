@@ -56,7 +56,8 @@ const Footer = () => {
   };
 
   const taglineStyle = {
-    color: '#6b7280'
+    color: '#6b7280',
+    fontSize: '0.875rem'
   };
 
   const linksGridStyle = {
@@ -75,7 +76,8 @@ const Footer = () => {
     color: '#374151',
     marginBottom: '0.5rem',
     textDecoration: 'none',
-    transition: 'color 0.3s'
+    transition: 'color 0.3s',
+    cursor: 'pointer'
   };
 
   const contactInfoStyle = {
@@ -138,4 +140,59 @@ const Footer = () => {
                 >
                   Équipements
                 </a>
-                <a
+                <a 
+                  href="#contact" 
+                  style={linkStyle}
+                  onMouseEnter={(e) => e.target.style.color = '#0f766e'}
+                  onMouseLeave={(e) => e.target.style.color = '#374151'}
+                >
+                  Contact
+                </a>
+              </div>
+              
+              <div style={linkColumnStyle}>
+                <a 
+                  href="#" 
+                  style={linkStyle}
+                  onMouseEnter={(e) => e.target.style.color = '#0f766e'}
+                  onMouseLeave={(e) => e.target.style.color = '#374151'}
+                >
+                  Facebook
+                </a>
+                <a 
+                  href="#" 
+                  style={linkStyle}
+                  onMouseEnter={(e) => e.target.style.color = '#0f766e'}
+                  onMouseLeave={(e) => e.target.style.color = '#374151'}
+                >
+                  Instagram
+                </a>
+                <a 
+                  href="#" 
+                  style={linkStyle}
+                  onMouseEnter={(e) => e.target.style.color = '#0f766e'}
+                  onMouseLeave={(e) => e.target.style.color = '#374151'}
+                >
+                  Linkedin
+                </a>
+              </div>
+              
+              <div style={linkColumnStyle}>
+                <p style={contactInfoStyle}>01 42 29 70 45</p>
+                <p style={contactInfoStyle}>info@Flaviense.fr</p>
+              </div>
+            </div>
+          </div>
+
+          <div style={dividerStyle}></div>
+
+          <div style={bottomSectionStyle}>
+            <p>© 2024 Ste Flaviense Mayday. Tous droits réservés.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
