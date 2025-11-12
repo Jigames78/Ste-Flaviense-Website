@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const footerStyle = {
@@ -72,17 +73,27 @@ const Footer = () => {
     gap: '0.5rem'
   };
 
+  const columnTitleStyle = {
+    fontWeight: 'bold',
+    color: '#111827',
+    marginBottom: '0.5rem',
+    fontSize: '0.875rem',
+    textTransform: 'uppercase'
+  };
+
   const linkStyle = {
     color: '#374151',
     marginBottom: '0.5rem',
     textDecoration: 'none',
     transition: 'color 0.3s',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    fontSize: '0.875rem'
   };
 
   const contactInfoStyle = {
     color: '#374151',
-    marginBottom: '0.5rem'
+    marginBottom: '0.5rem',
+    fontSize: '0.875rem'
   };
 
   const dividerStyle = {
@@ -92,9 +103,34 @@ const Footer = () => {
   };
 
   const bottomSectionStyle = {
-    textAlign: 'center',
-    color: '#6b7280',
-    fontSize: '0.875rem'
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: '1rem',
+    fontSize: '0.875rem',
+    color: '#6b7280'
+  };
+
+  const socialLinksStyle = {
+    display: 'flex',
+    gap: '1rem'
+  };
+
+  const socialIconStyle = {
+    width: '2rem',
+    height: '2rem',
+    borderRadius: '50%',
+    backgroundColor: '#0f766e',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'white',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s',
+    textDecoration: 'none',
+    fontSize: '0.875rem',
+    fontWeight: 'bold'
   };
 
   return (
@@ -105,7 +141,11 @@ const Footer = () => {
             <div>
               <div style={logoSectionStyle}>
                 <div style={logoCircleStyle}>
-                  <span style={logoTextStyle}>Logo</span>
+                  <img 
+                    src="/logo.png" 
+                    alt="Ste Flaviense Mayday Logo" 
+                    style={{width: '100%', height: '100%', objectFit: 'contain'}}
+                  />
                 </div>
                 <div>
                   <h3 style={companyNameStyle}>Ste Flavience Mayday</h3>
@@ -116,41 +156,43 @@ const Footer = () => {
 
             <div style={linksGridStyle}>
               <div style={linkColumnStyle}>
-                <a 
-                  href="#accueil" 
+                <h4 style={columnTitleStyle}>Navigation</h4>
+                <Link 
+                  to="/" 
                   style={linkStyle}
                   onMouseEnter={(e) => e.target.style.color = '#0f766e'}
                   onMouseLeave={(e) => e.target.style.color = '#374151'}
                 >
                   Accueil
-                </a>
-                <a 
-                  href="#apropos" 
+                </Link>
+                <Link 
+                  to="/apropos" 
                   style={linkStyle}
                   onMouseEnter={(e) => e.target.style.color = '#0f766e'}
                   onMouseLeave={(e) => e.target.style.color = '#374151'}
                 >
                   À propos
-                </a>
-                <a 
-                  href="#equipements" 
+                </Link>
+                <Link 
+                  to="/equipements" 
                   style={linkStyle}
                   onMouseEnter={(e) => e.target.style.color = '#0f766e'}
                   onMouseLeave={(e) => e.target.style.color = '#374151'}
                 >
                   Équipements
-                </a>
-                <a 
-                  href="#contact" 
+                </Link>
+                <Link 
+                  to="/contact" 
                   style={linkStyle}
                   onMouseEnter={(e) => e.target.style.color = '#0f766e'}
                   onMouseLeave={(e) => e.target.style.color = '#374151'}
                 >
                   Contact
-                </a>
+                </Link>
               </div>
               
               <div style={linkColumnStyle}>
+                <h4 style={columnTitleStyle}>Réseaux Sociaux</h4>
                 <a 
                   href="#" 
                   style={linkStyle}
@@ -178,8 +220,11 @@ const Footer = () => {
               </div>
               
               <div style={linkColumnStyle}>
+                <h4 style={columnTitleStyle}>Contact</h4>
                 <p style={contactInfoStyle}>01 42 29 70 45</p>
                 <p style={contactInfoStyle}>info@Flaviense.fr</p>
+                <p style={contactInfoStyle}>32 Rue Lantiez</p>
+                <p style={contactInfoStyle}>75017 Paris</p>
               </div>
             </div>
           </div>
@@ -188,6 +233,33 @@ const Footer = () => {
 
           <div style={bottomSectionStyle}>
             <p>© 2024 Ste Flaviense Mayday. Tous droits réservés.</p>
+            
+            <div style={socialLinksStyle}>
+              <a 
+                href="#" 
+                style={socialIconStyle}
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#115e59'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = '#0f766e'}
+              >
+                f
+              </a>
+              <a 
+                href="#" 
+                style={socialIconStyle}
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#115e59'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = '#0f766e'}
+              >
+                in
+              </a>
+              <a 
+                href="#" 
+                style={socialIconStyle}
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#115e59'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = '#0f766e'}
+              >
+                ig
+              </a>
+            </div>
           </div>
         </div>
       </div>

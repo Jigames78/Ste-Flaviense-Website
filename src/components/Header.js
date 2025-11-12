@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +40,8 @@ const Header = () => {
   const logoContainerStyle = {
     display: 'flex',
     alignItems: 'center',
-    gap: '0.75rem'
+    gap: '0.75rem',
+    textDecoration: 'none'
   };
 
   const logoCircleStyle = {
@@ -68,26 +71,20 @@ const Header = () => {
     gap: '2rem'
   };
 
-  const linkStyle = {
-    color: '#1f2937',
+  const getLinkStyle = (path) => ({
+    color: location.pathname === path ? '#0f766e' : '#1f2937',
     textDecoration: 'none',
     fontWeight: '500',
-    transition: 'color 0.3s'
-  };
-
-  const activeLinkStyle = {
-    ...linkStyle,
-    color: '#0f766e',
-    borderBottom: '2px solid #0f766e',
+    transition: 'color 0.3s',
+    borderBottom: location.pathname === path ? '2px solid #0f766e' : 'none',
     paddingBottom: '4px'
-  };
+  });
 
   const menuButtonStyle = {
     background: 'none',
     border: 'none',
     fontSize: '1.5rem',
-    cursor: 'pointer',
-    display: 'none'
+    cursor: 'pointer'
   };
 
   const mobileMenuStyle = {
@@ -107,18 +104,22 @@ const Header = () => {
     <header style={menuStyle}>
       <div style={containerStyle}>
         <div style={flexBetweenStyle}>
-          <div style={logoContainerStyle}>
+          <Link to="/" style={logoContainerStyle}>
             <div style={logoCircleStyle}>
-              <span style={logoTextStyle}>Logo</span>
+              <img 
+                src="/logo.png" 
+                alt="Ste Flaviense Mayday Logo" 
+                style={{width: '100%', height: '100%', objectFit: 'contain'}}
+              />
             </div>
             <h1 style={titleStyle}>Ste Flaviense Mayday</h1>
-          </div>
+          </Link>
           
           <nav style={{...navStyle, display: window.innerWidth < 768 ? 'none' : 'flex'}}>
-            <a href="#accueil" style={linkStyle}>Accueil</a>
-            <a href="#apropos" style={linkStyle}>À propos</a>
-            <a href="#equipements" style={activeLinkStyle}>Équipements</a>
-            <a href="#contact" style={linkStyle}>Contact</a>
+            <Link to="/" style={getLinkStyle('/')}>Accueil</Link>
+            <Link to="/apropos" style={getLinkStyle('/apropos')}>À propos</Link>
+            <Link to="/equipements" style={getLinkStyle('/equipements')}>Équipements</Link>
+            <Link to="/contact" style={getLinkStyle('/contact')}>Contact</Link>
           </nav>
 
           <button 
@@ -129,12 +130,12 @@ const Header = () => {
           </button>
         </div>
 
-        {isMenuOpen && window.innerWidth < 768 && (
+        {isMenuOpen && (
           <nav style={mobileMenuStyle}>
-            <a href="#accueil" style={mobileLinkStyle}>Accueil</a>
-            <a href="#apropos" style={mobileLinkStyle}>À propos</a>
-            <a href="#equipements" style={mobileLinkStyle}>Équipements</a>
-            <a href="#contact" style={mobileLinkStyle}>Contact</a>
+            <Link to="/" style={mobileLinkStyle} onClick={() => setIsMenuOpen(false)}>Accueil</Link>
+            <Link to="/apropos" style={mobileLinkStyle} onClick={() => setIsMenuOpen(false)}>À propos</Link>
+            <Link to="/equipements" style={mobileLinkStyle} onClick={() => setIsMenuOpen(false)}>Équipements</Link>
+            <Link to="/contact" style={mobileLinkStyle} onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
         )}
       </div>
