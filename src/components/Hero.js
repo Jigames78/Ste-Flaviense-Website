@@ -5,24 +5,25 @@ const Hero = () => {
     position: 'relative',
     height: '100vh',
     paddingTop: '80px',
-    background: 'linear-gradient(to bottom right, #374151, #111827)',
     display: 'flex',
-    alignItems: 'center'
-  };
-
-  const overlayStyle = {
-    position: 'absolute',
-    inset: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)'
+    alignItems: 'center',
+    overflow: 'hidden'
   };
 
   const imageStyle = {
     position: 'absolute',
     inset: 0,
-    backgroundImage: "url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1080&fit=crop')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    mixBlendMode: 'multiply'
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    zIndex: 0
+  };
+
+  const overlayStyle = {
+    position: 'absolute',
+    inset: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    zIndex: 1
   };
 
   const contentStyle = {
@@ -38,19 +39,30 @@ const Hero = () => {
     fontSize: 'clamp(2.5rem, 8vw, 5rem)',
     fontWeight: 'bold',
     marginBottom: '1.5rem',
-    lineHeight: '1.1'
+    lineHeight: '1.1',
+    textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
   };
 
   const subtitleStyle = {
     fontSize: 'clamp(1.25rem, 3vw, 1.5rem)',
     marginBottom: '2rem',
-    color: '#d1d5db'
+    color: '#f3f4f6',
+    textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
   };
 
   return (
     <section id="accueil" style={sectionStyle}>
+      <img 
+        src="/images/hero/hero-home.jpg"
+        alt="Nettoyage industriel"
+        style={imageStyle}
+        loading="eager"
+        onError={(e) => {
+          console.error('Image non chargée:', e.target.src);
+          e.target.style.display = 'none';
+        }}
+      />
       <div style={overlayStyle}></div>
-      <div style={imageStyle}></div>
       <div style={contentStyle}>
         <div style={{maxWidth: '42rem'}}>
           <h2 style={titleStyle}>

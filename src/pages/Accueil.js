@@ -317,23 +317,67 @@ const Accueil = () => {
 
   return (
     <>
-      {/* Hero Section */}
-      <section style={heroStyle}>
-        <div style={overlayStyle}></div>
-        <div style={imageStyle}></div>
-        <div style={contentStyle}>
-          <div style={{maxWidth: '42rem'}}>
-            <h2 style={titleStyle}>
-              NETTOYAGE<br />
-              INDUSTRIEL DE<br />
-              CONFIANCE
-            </h2>
-            <p style={subtitleStyle}>
-              Créez un environnement de travail propre et sain adapté à vos besoins.
-            </p>
-          </div>
-        </div>
-      </section>
+     // Remplacez la section Hero dans src/pages/Accueil.js par ce code :
+
+{/* Hero Section */}
+<section style={{
+  position: 'relative',
+  height: '100vh',
+  paddingTop: '80px',
+  display: 'flex',
+  alignItems: 'center',
+  overflow: 'hidden'
+}}>
+  <img 
+    src="/images/hero/hero-home.jpg"
+    alt="Nettoyage industriel"
+    style={{
+      position: 'absolute',
+      inset: 0,
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      zIndex: 0
+    }}
+    loading="eager"
+  />
+  <div style={{
+    position: 'absolute',
+    inset: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    zIndex: 1
+  }}></div>
+  <div style={{
+    position: 'relative',
+    zIndex: 10,
+    maxWidth: '1280px',
+    margin: '0 auto',
+    padding: '0 1rem',
+    color: 'white'
+  }}>
+    <div style={{maxWidth: '42rem'}}>
+      <h2 style={{
+        fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+        fontWeight: 'bold',
+        marginBottom: '1.5rem',
+        lineHeight: '1.1',
+        textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+      }}>
+        NETTOYAGE<br />
+        INDUSTRIEL DE<br />
+        CONFIANCE
+      </h2>
+      <p style={{
+        fontSize: 'clamp(1.25rem, 3vw, 1.5rem)',
+        marginBottom: '2rem',
+        color: '#f3f4f6',
+        textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+      }}>
+        Créez un environnement de travail propre et sain adapté à vos besoins.
+      </p>
+    </div>
+  </div>
+</section>
 
       {/* About Section */}
       <section style={aboutSectionStyle}>

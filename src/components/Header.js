@@ -47,11 +47,12 @@ const Header = () => {
   const logoCircleStyle = {
     width: '48px',
     height: '48px',
-    backgroundColor: '#e5e7eb',
+    backgroundColor: '#f3f4f6',
     borderRadius: '50%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    overflow: 'hidden'
   };
 
   const titleStyle = {
@@ -100,14 +101,16 @@ const Header = () => {
         <div style={flexBetweenStyle}>
           <Link to="/" style={logoContainerStyle}>
             <div style={logoCircleStyle}>
-<img 
-  src={`${process.env.PUBLIC_URL}/logo.png`}
-  alt="Ste Flaviense Mayday Logo" 
-  style={{width: '100%', height: '100%', objectFit: 'contain'}}
-  onError={(e) => {
-    e.target.style.display = 'none';
-  }}
-/>
+              <img 
+                src="/logo.svg"
+                alt="Ste Flaviense Mayday Logo" 
+                style={{width: '40px', height: '40px', objectFit: 'contain'}}
+                onError={(e) => {
+                  // Fallback si le SVG ne charge pas
+                  e.target.onerror = null;
+                  e.target.src = '/logo.png';
+                }}
+              />
             </div>
             <h1 style={titleStyle}>Ste Flaviense Mayday</h1>
           </Link>

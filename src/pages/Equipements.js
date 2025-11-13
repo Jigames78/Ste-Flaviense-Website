@@ -213,20 +213,63 @@ const Equipements = () => {
 
   return (
     <>
-      {/* Hero Section */}
-      <section style={heroStyle}>
-        <div style={overlayStyle}></div>
-        <div style={imageStyle}></div>
-        <div style={contentStyle}>
-          <h1 style={titleStyle}>
-            MÉNAGE SUR MESURE<br />
-            À VOTRE SERVICE
-          </h1>
-          <p style={subtitleStyle}>
-            Paragraphe. Vous pouvez le modifier et ajouter votre texte. Double-cliquez ici ou cliquez sur « Modifier le texte » pour ajouter votre contenu et personnaliser la police. Utilisez cet espace pour raconter une histoire et vous présenter à vos visiteurs. Vous pouvez le faire glisser-déposer où vous le souhaitez sur la page.
-          </p>
-        </div>
-      </section>
+      // Remplacez la section Hero dans src/pages/Equipements.js par ce code :
+
+{/* Hero Section - VERSION CORRIGÉE */}
+<section style={{
+  position: 'relative',
+  height: '60vh',
+  paddingTop: '80px',
+  display: 'flex',
+  alignItems: 'center',
+  overflow: 'hidden'
+}}>
+  <img 
+    src="/images/hero/hero-equipements.jpg"
+    alt="Équipements de nettoyage"
+    style={{
+      position: 'absolute',
+      inset: 0,
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      zIndex: 0
+    }}
+    loading="eager"
+  />
+  <div style={{
+    position: 'absolute',
+    inset: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    zIndex: 1
+  }}></div>
+  <div style={{
+    position: 'relative',
+    zIndex: 10,
+    maxWidth: '1280px',
+    margin: '0 auto',
+    padding: '0 1rem',
+    color: 'white'
+  }}>
+    <h1 style={{
+      fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+      fontWeight: 'bold',
+      lineHeight: '1.1',
+      textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+    }}>
+      MÉNAGE SUR MESURE<br />
+      À VOTRE SERVICE
+    </h1>
+    <p style={{
+      fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+      marginTop: '1rem',
+      color: '#f3f4f6',
+      textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+    }}>
+      Des équipements professionnels pour un nettoyage de qualité
+    </p>
+  </div>
+</section>
 
       {/* Equipment Section */}
       <section style={sectionStyle}>
