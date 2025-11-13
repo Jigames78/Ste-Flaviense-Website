@@ -275,7 +275,7 @@ const Accueil = () => {
         overflow: 'hidden'
       }}>
         <img 
-          src="/images/hero/hero-home.jpg"
+          src="/images/hero/hero-home.JPG"
           alt="Nettoyage industriel"
           style={{
             position: 'absolute',
