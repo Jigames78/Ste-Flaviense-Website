@@ -54,12 +54,6 @@ const Header = () => {
     justifyContent: 'center'
   };
 
-  const logoTextStyle = {
-    fontSize: '0.75rem',
-    fontWeight: 'bold',
-    color: '#115e59'
-  };
-
   const titleStyle = {
     fontSize: '1.5rem',
     fontWeight: 'bold',
@@ -125,6 +119,7 @@ const Header = () => {
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
             style={{...menuButtonStyle, display: window.innerWidth < 768 ? 'block' : 'none'}}
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? '✕' : '☰'}
           </button>

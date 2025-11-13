@@ -44,12 +44,6 @@ const Footer = () => {
     justifyContent: 'center'
   };
 
-  const logoTextStyle = {
-    fontSize: '0.75rem',
-    fontWeight: 'bold',
-    color: '#115e59'
-  };
-
   const companyNameStyle = {
     fontSize: '1.25rem',
     fontWeight: 'bold',
@@ -194,7 +188,9 @@ const Footer = () => {
               <div style={linkColumnStyle}>
                 <h4 style={columnTitleStyle}>Réseaux Sociaux</h4>
                 <a 
-                  href="#" 
+                  href="https://facebook.com" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={linkStyle}
                   onMouseEnter={(e) => e.target.style.color = '#0f766e'}
                   onMouseLeave={(e) => e.target.style.color = '#374151'}
@@ -202,7 +198,9 @@ const Footer = () => {
                   Facebook
                 </a>
                 <a 
-                  href="#" 
+                  href="https://instagram.com" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={linkStyle}
                   onMouseEnter={(e) => e.target.style.color = '#0f766e'}
                   onMouseLeave={(e) => e.target.style.color = '#374151'}
@@ -210,7 +208,9 @@ const Footer = () => {
                   Instagram
                 </a>
                 <a 
-                  href="#" 
+                  href="https://linkedin.com" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={linkStyle}
                   onMouseEnter={(e) => e.target.style.color = '#0f766e'}
                   onMouseLeave={(e) => e.target.style.color = '#374151'}
@@ -236,26 +236,35 @@ const Footer = () => {
             
             <div style={socialLinksStyle}>
               <a 
-                href="#" 
+                href="https://facebook.com" 
+                target="_blank"
+                rel="noopener noreferrer"
                 style={socialIconStyle}
                 onMouseEnter={(e) => e.target.style.backgroundColor = '#115e59'}
                 onMouseLeave={(e) => e.target.style.backgroundColor = '#0f766e'}
+                aria-label="Facebook"
               >
                 f
               </a>
               <a 
-                href="#" 
+                href="https://linkedin.com" 
+                target="_blank"
+                rel="noopener noreferrer"
                 style={socialIconStyle}
                 onMouseEnter={(e) => e.target.style.backgroundColor = '#115e59'}
                 onMouseLeave={(e) => e.target.style.backgroundColor = '#0f766e'}
+                aria-label="LinkedIn"
               >
                 in
               </a>
               <a 
-                href="#" 
+                href="https://instagram.com" 
+                target="_blank"
+                rel="noopener noreferrer"
                 style={socialIconStyle}
                 onMouseEnter={(e) => e.target.style.backgroundColor = '#115e59'}
                 onMouseLeave={(e) => e.target.style.backgroundColor = '#0f766e'}
+                aria-label="Instagram"
               >
                 ig
               </a>
