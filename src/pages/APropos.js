@@ -1,45 +1,6 @@
 import React from 'react';
 
 const APropos = () => {
-  const heroStyle = {
-    position: 'relative',
-    height: '60vh',
-    paddingTop: '80px',
-    background: 'linear-gradient(to bottom right, #1f2937, #111827)',
-    display: 'flex',
-    alignItems: 'center'
-  };
-
-  const overlayStyle = {
-    position: 'absolute',
-    inset: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
-  };
-
-  const imageStyle = {
-    position: 'absolute',
-    inset: 0,
-    backgroundImage: "url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1080&fit=crop')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    mixBlendMode: 'multiply'
-  };
-
-  const contentStyle = {
-    position: 'relative',
-    zIndex: 10,
-    maxWidth: '1280px',
-    margin: '0 auto',
-    padding: '0 1rem',
-    color: 'white'
-  };
-
-  const titleStyle = {
-    fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-    fontWeight: 'bold',
-    lineHeight: '1.1'
-  };
-
   const sectionStyle = {
     padding: '5rem 1rem',
     backgroundColor: 'white'
@@ -115,57 +76,53 @@ const APropos = () => {
 
   return (
     <>
-     // Remplacez la section Hero dans src/pages/APropos.js par ce code :
+      <section style={{
+        position: 'relative',
+        height: '60vh',
+        paddingTop: '80px',
+        display: 'flex',
+        alignItems: 'center',
+        overflow: 'hidden'
+      }}>
+        <img 
+          src="/images/hero/hero-about.jpg"
+          alt="À propos de nous"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0
+          }}
+          loading="eager"
+        />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          zIndex: 1
+        }}></div>
+        <div style={{
+          position: 'relative',
+          zIndex: 10,
+          maxWidth: '1280px',
+          margin: '0 auto',
+          padding: '0 1rem',
+          color: 'white'
+        }}>
+          <h1 style={{
+            fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+            fontWeight: 'bold',
+            lineHeight: '1.1',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+          }}>
+            30 ANS<br />
+            D'EXPERIENCE
+          </h1>
+        </div>
+      </section>
 
-{/* Hero Section - VERSION CORRIGÉE */}
-<section style={{
-  position: 'relative',
-  height: '60vh',
-  paddingTop: '80px',
-  display: 'flex',
-  alignItems: 'center',
-  overflow: 'hidden'
-}}>
-  <img 
-    src="/images/hero/hero-about.jpg"
-    alt="À propos de nous"
-    style={{
-      position: 'absolute',
-      inset: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      zIndex: 0
-    }}
-    loading="eager"
-  />
-  <div style={{
-    position: 'absolute',
-    inset: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    zIndex: 1
-  }}></div>
-  <div style={{
-    position: 'relative',
-    zIndex: 10,
-    maxWidth: '1280px',
-    margin: '0 auto',
-    padding: '0 1rem',
-    color: 'white'
-  }}>
-    <h1 style={{
-      fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-      fontWeight: 'bold',
-      lineHeight: '1.1',
-      textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
-    }}>
-      30 ANS<br />
-      D'EXPERIENCE
-    </h1>
-  </div>
-</section>
-
-      {/* About Content Section */}
       <section style={sectionStyle}>
         <div style={containerStyle}>
           <h2 style={sectionTitleStyle}>Notre Histoire</h2>
@@ -200,7 +157,6 @@ const APropos = () => {
         </div>
       </section>
 
-      {/* Mission Section */}
       <section style={contentSectionStyle}>
         <div style={containerStyle}>
           <div style={twoColumnStyle}>
@@ -227,7 +183,6 @@ const APropos = () => {
         </div>
       </section>
 
-      {/* Values Section */}
       <section style={sectionStyle}>
         <div style={containerStyle}>
           <div style={twoColumnStyle}>

@@ -2,51 +2,6 @@ import React from 'react';
 import { equipment } from '../assets/data';
 
 const Equipements = () => {
-  const heroStyle = {
-    position: 'relative',
-    height: '60vh',
-    paddingTop: '80px',
-    background: 'linear-gradient(to bottom right, #1f2937, #374151)',
-    display: 'flex',
-    alignItems: 'center'
-  };
-
-  const overlayStyle = {
-    position: 'absolute',
-    inset: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
-  };
-
-  const imageStyle = {
-    position: 'absolute',
-    inset: 0,
-    backgroundImage: "url('https://images.unsplash.com/photo-1585421514738-01798e348b17?w=1920&h=1080&fit=crop')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    mixBlendMode: 'multiply'
-  };
-
-  const contentStyle = {
-    position: 'relative',
-    zIndex: 10,
-    maxWidth: '1280px',
-    margin: '0 auto',
-    padding: '0 1rem',
-    color: 'white'
-  };
-
-  const titleStyle = {
-    fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-    fontWeight: 'bold',
-    lineHeight: '1.1'
-  };
-
-  const subtitleStyle = {
-    fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-    marginTop: '1rem',
-    color: '#d1d5db'
-  };
-
   const sectionStyle = {
     padding: '5rem 1rem',
     backgroundColor: 'white'
@@ -213,65 +168,61 @@ const Equipements = () => {
 
   return (
     <>
-      // Remplacez la section Hero dans src/pages/Equipements.js par ce code :
+      <section style={{
+        position: 'relative',
+        height: '60vh',
+        paddingTop: '80px',
+        display: 'flex',
+        alignItems: 'center',
+        overflow: 'hidden'
+      }}>
+        <img 
+          src="/images/hero/hero-equipements.jpg"
+          alt="Équipements de nettoyage"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0
+          }}
+          loading="eager"
+        />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          zIndex: 1
+        }}></div>
+        <div style={{
+          position: 'relative',
+          zIndex: 10,
+          maxWidth: '1280px',
+          margin: '0 auto',
+          padding: '0 1rem',
+          color: 'white'
+        }}>
+          <h1 style={{
+            fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+            fontWeight: 'bold',
+            lineHeight: '1.1',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+          }}>
+            MÉNAGE SUR MESURE<br />
+            À VOTRE SERVICE
+          </h1>
+          <p style={{
+            fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+            marginTop: '1rem',
+            color: '#f3f4f6',
+            textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+          }}>
+            Des équipements professionnels pour un nettoyage de qualité
+          </p>
+        </div>
+      </section>
 
-{/* Hero Section - VERSION CORRIGÉE */}
-<section style={{
-  position: 'relative',
-  height: '60vh',
-  paddingTop: '80px',
-  display: 'flex',
-  alignItems: 'center',
-  overflow: 'hidden'
-}}>
-  <img 
-    src="/images/hero/hero-equipements.jpg"
-    alt="Équipements de nettoyage"
-    style={{
-      position: 'absolute',
-      inset: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      zIndex: 0
-    }}
-    loading="eager"
-  />
-  <div style={{
-    position: 'absolute',
-    inset: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    zIndex: 1
-  }}></div>
-  <div style={{
-    position: 'relative',
-    zIndex: 10,
-    maxWidth: '1280px',
-    margin: '0 auto',
-    padding: '0 1rem',
-    color: 'white'
-  }}>
-    <h1 style={{
-      fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-      fontWeight: 'bold',
-      lineHeight: '1.1',
-      textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
-    }}>
-      MÉNAGE SUR MESURE<br />
-      À VOTRE SERVICE
-    </h1>
-    <p style={{
-      fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-      marginTop: '1rem',
-      color: '#f3f4f6',
-      textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
-    }}>
-      Des équipements professionnels pour un nettoyage de qualité
-    </p>
-  </div>
-</section>
-
-      {/* Equipment Section */}
       <section style={sectionStyle}>
         <div style={containerStyle}>
           <h2 style={sectionTitleStyle}>LES MEILLEURS PRODUITS</h2>
@@ -319,7 +270,6 @@ const Equipements = () => {
         </div>
       </section>
 
-      {/* Suppliers Section */}
       <section style={suppliersSectionStyle}>
         <div style={containerStyle}>
           <h2 style={sectionTitleStyle}>Nos Fournisseurs</h2>

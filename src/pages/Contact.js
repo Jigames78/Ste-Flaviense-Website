@@ -20,46 +20,6 @@ const Contact = () => {
     e.preventDefault();
     alert('Formulaire soumis ! Merci de nous avoir contacté.');
     console.log('Form data:', formData);
-    // Ici vous ajouterez la logique d'envoi
-  };
-
-  const heroStyle = {
-    position: 'relative',
-    height: '60vh',
-    paddingTop: '80px',
-    background: 'linear-gradient(to bottom right, #1f2937, #111827)',
-    display: 'flex',
-    alignItems: 'center'
-  };
-
-  const overlayStyle = {
-    position: 'absolute',
-    inset: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)'
-  };
-
-  const imageStyle = {
-    position: 'absolute',
-    inset: 0,
-    backgroundImage: "url('https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=1920&h=1080&fit=crop')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    mixBlendMode: 'multiply'
-  };
-
-  const contentStyle = {
-    position: 'relative',
-    zIndex: 10,
-    maxWidth: '1280px',
-    margin: '0 auto',
-    padding: '0 1rem',
-    color: 'white'
-  };
-
-  const titleStyle = {
-    fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-    fontWeight: 'bold',
-    lineHeight: '1.1'
   };
 
   const sectionStyle = {
@@ -210,57 +170,53 @@ const Contact = () => {
 
   return (
     <>
-// Remplacez la section Hero dans src/pages/Contact.js par ce code :
+      <section style={{
+        position: 'relative',
+        height: '60vh',
+        paddingTop: '80px',
+        display: 'flex',
+        alignItems: 'center',
+        overflow: 'hidden'
+      }}>
+        <img 
+          src="/images/hero/hero-contact.jpg"
+          alt="Contactez-nous"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0
+          }}
+          loading="eager"
+        />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          zIndex: 1
+        }}></div>
+        <div style={{
+          position: 'relative',
+          zIndex: 10,
+          maxWidth: '1280px',
+          margin: '0 auto',
+          padding: '0 1rem',
+          color: 'white'
+        }}>
+          <h1 style={{
+            fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+            fontWeight: 'bold',
+            lineHeight: '1.1',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+          }}>
+            CONTACTEZ-NOUS POUR<br />
+            PLUS D'INFOS
+          </h1>
+        </div>
+      </section>
 
-{/* Hero Section - VERSION CORRIGÉE */}
-<section style={{
-  position: 'relative',
-  height: '60vh',
-  paddingTop: '80px',
-  display: 'flex',
-  alignItems: 'center',
-  overflow: 'hidden'
-}}>
-  <img 
-    src="/images/hero/hero-contact.jpg"
-    alt="Contactez-nous"
-    style={{
-      position: 'absolute',
-      inset: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      zIndex: 0
-    }}
-    loading="eager"
-  />
-  <div style={{
-    position: 'absolute',
-    inset: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    zIndex: 1
-  }}></div>
-  <div style={{
-    position: 'relative',
-    zIndex: 10,
-    maxWidth: '1280px',
-    margin: '0 auto',
-    padding: '0 1rem',
-    color: 'white'
-  }}>
-    <h1 style={{
-      fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-      fontWeight: 'bold',
-      lineHeight: '1.1',
-      textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
-    }}>
-      CONTACTEZ-NOUS POUR<br />
-      PLUS D'INFOS
-    </h1>
-  </div>
-</section>
-
-      {/* Contact Form Section */}
       <section style={sectionStyle}>
         <div style={containerStyle}>
           <div style={gridStyle}>
@@ -363,7 +319,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Info Section */}
       <section style={infoSectionStyle}>
         <div style={containerStyle}>
           <h2 style={{...sectionTitleStyle, color: '#111827', textAlign: 'center'}}>
@@ -427,7 +382,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section (placeholder) */}
       <section style={{padding: '0', height: '450px', backgroundColor: '#e5e7eb'}}>
         <iframe
           title="32 Rue Lantiez, 75017 Paris"

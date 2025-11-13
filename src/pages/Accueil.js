@@ -3,54 +3,6 @@ import { Link } from 'react-router-dom';
 import { services, testimonials, clients } from '../assets/data';
 
 const Accueil = () => {
-  // Hero Section
-  const heroStyle = {
-    position: 'relative',
-    height: '100vh',
-    paddingTop: '80px',
-    background: 'linear-gradient(to bottom right, #374151, #111827)',
-    display: 'flex',
-    alignItems: 'center'
-  };
-
-  const overlayStyle = {
-    position: 'absolute',
-    inset: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)'
-  };
-
-  const imageStyle = {
-    position: 'absolute',
-    inset: 0,
-    backgroundImage: "url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1080&fit=crop')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    mixBlendMode: 'multiply'
-  };
-
-  const contentStyle = {
-    position: 'relative',
-    zIndex: 10,
-    maxWidth: '1280px',
-    margin: '0 auto',
-    padding: '0 1rem',
-    color: 'white'
-  };
-
-  const titleStyle = {
-    fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-    fontWeight: 'bold',
-    marginBottom: '1.5rem',
-    lineHeight: '1.1'
-  };
-
-  const subtitleStyle = {
-    fontSize: 'clamp(1.25rem, 3vw, 1.5rem)',
-    marginBottom: '2rem',
-    color: '#d1d5db'
-  };
-
-  // About Section
   const aboutSectionStyle = {
     padding: '5rem 1rem',
     backgroundColor: 'white',
@@ -101,7 +53,6 @@ const Accueil = () => {
     margin: '1rem auto 0'
   };
 
-  // Services Section
   const servicesSectionStyle = {
     padding: '5rem 1rem',
     backgroundColor: '#f9fafb'
@@ -177,7 +128,6 @@ const Accueil = () => {
     marginTop: '0.5rem'
   };
 
-  // Commitments Section
   const commitmentsSectionStyle = {
     padding: '5rem 1rem',
     background: 'linear-gradient(to bottom right, #d1fae5, #99f6e4)'
@@ -213,7 +163,6 @@ const Accueil = () => {
     lineHeight: '1.5'
   };
 
-  // Testimonials Section
   const testimonialsSectionStyle = {
     padding: '5rem 1rem',
     backgroundColor: 'white'
@@ -317,69 +266,65 @@ const Accueil = () => {
 
   return (
     <>
-     // Remplacez la section Hero dans src/pages/Accueil.js par ce code :
-
-{/* Hero Section */}
-<section style={{
-  position: 'relative',
-  height: '100vh',
-  paddingTop: '80px',
-  display: 'flex',
-  alignItems: 'center',
-  overflow: 'hidden'
-}}>
-  <img 
-    src="/images/hero/hero-home.jpg"
-    alt="Nettoyage industriel"
-    style={{
-      position: 'absolute',
-      inset: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      zIndex: 0
-    }}
-    loading="eager"
-  />
-  <div style={{
-    position: 'absolute',
-    inset: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    zIndex: 1
-  }}></div>
-  <div style={{
-    position: 'relative',
-    zIndex: 10,
-    maxWidth: '1280px',
-    margin: '0 auto',
-    padding: '0 1rem',
-    color: 'white'
-  }}>
-    <div style={{maxWidth: '42rem'}}>
-      <h2 style={{
-        fontSize: 'clamp(2.5rem, 8vw, 5rem)',
-        fontWeight: 'bold',
-        marginBottom: '1.5rem',
-        lineHeight: '1.1',
-        textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+      <section style={{
+        position: 'relative',
+        height: '100vh',
+        paddingTop: '80px',
+        display: 'flex',
+        alignItems: 'center',
+        overflow: 'hidden'
       }}>
-        NETTOYAGE<br />
-        INDUSTRIEL DE<br />
-        CONFIANCE
-      </h2>
-      <p style={{
-        fontSize: 'clamp(1.25rem, 3vw, 1.5rem)',
-        marginBottom: '2rem',
-        color: '#f3f4f6',
-        textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
-      }}>
-        Créez un environnement de travail propre et sain adapté à vos besoins.
-      </p>
-    </div>
-  </div>
-</section>
+        <img 
+          src="/images/hero/hero-home.jpg"
+          alt="Nettoyage industriel"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0
+          }}
+          loading="eager"
+        />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          zIndex: 1
+        }}></div>
+        <div style={{
+          position: 'relative',
+          zIndex: 10,
+          maxWidth: '1280px',
+          margin: '0 auto',
+          padding: '0 1rem',
+          color: 'white'
+        }}>
+          <div style={{maxWidth: '42rem'}}>
+            <h2 style={{
+              fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+              fontWeight: 'bold',
+              marginBottom: '1.5rem',
+              lineHeight: '1.1',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+            }}>
+              NETTOYAGE<br />
+              INDUSTRIEL DE<br />
+              CONFIANCE
+            </h2>
+            <p style={{
+              fontSize: 'clamp(1.25rem, 3vw, 1.5rem)',
+              marginBottom: '2rem',
+              color: '#f3f4f6',
+              textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+            }}>
+              Créez un environnement de travail propre et sain adapté à vos besoins.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      {/* About Section */}
       <section style={aboutSectionStyle}>
         <div style={containerStyle}>
           <div style={{maxWidth: '48rem'}}>
@@ -406,7 +351,6 @@ const Accueil = () => {
         </div>
       </section>
 
-      {/* Services Section */}
       <section style={servicesSectionStyle}>
         <div style={{maxWidth: '1280px', margin: '0 auto'}}>
           <h2 style={sectionTitleStyle}>
@@ -452,7 +396,6 @@ const Accueil = () => {
         </div>
       </section>
 
-      {/* Commitments Section */}
       <section style={commitmentsSectionStyle}>
         <div style={{maxWidth: '1280px', margin: '0 auto'}}>
           <h2 style={sectionTitleStyle}>Nos Engagements</h2>
@@ -471,7 +414,6 @@ const Accueil = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
       <section style={testimonialsSectionStyle}>
         <div style={testimonialsContainerStyle}>
           <h2 style={sectionTitleStyle}>
