@@ -135,11 +135,14 @@ const Footer = () => {
             <div>
               <div style={logoSectionStyle}>
                 <div style={logoCircleStyle}>
-                  <img 
-                    src="/logo.png" 
-                    alt="Ste Flaviense Mayday Logo" 
-                    style={{width: '100%', height: '100%', objectFit: 'contain'}}
-                  />
+<img 
+  src={`${process.env.PUBLIC_URL}/logo.png`}
+  alt="Ste Flaviense Mayday Logo" 
+  style={{width: '100%', height: '100%', objectFit: 'contain'}}
+  onError={(e) => {
+    e.target.style.display = 'none';
+  }}
+/>
                 </div>
                 <div>
                   <h3 style={companyNameStyle}>Ste Flavience Mayday</h3>
