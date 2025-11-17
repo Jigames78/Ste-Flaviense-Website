@@ -37,12 +37,15 @@ const Footer = () => {
   const logoCircleStyle = {
     width: '48px',
     height: '48px',
-    backgroundColor: '#f3f4f6',
+    backgroundColor: '#0f766e',
     borderRadius: '50%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    color: 'white'
   };
 
   const companyNameStyle = {
@@ -136,15 +139,7 @@ const Footer = () => {
             <div>
               <div style={logoSectionStyle}>
                 <div style={logoCircleStyle}>
-                  <img 
-                    src="/logo.svg"
-                    alt="Ste Flaviense Mayday Logo" 
-                    style={{width: '40px', height: '40px', objectFit: 'contain'}}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = '/logo.png';
-                    }}
-                  />
+                  FM
                 </div>
                 <div>
                   <h3 style={companyNameStyle}>Ste Flavience Mayday</h3>

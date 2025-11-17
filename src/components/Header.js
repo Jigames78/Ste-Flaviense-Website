@@ -47,12 +47,15 @@ const Header = () => {
   const logoCircleStyle = {
     width: '48px',
     height: '48px',
-    backgroundColor: '#f3f4f6',
+    backgroundColor: '#0f766e',
     borderRadius: '50%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    color: 'white'
   };
 
   const titleStyle = {
@@ -101,11 +104,7 @@ const Header = () => {
         <div style={flexBetweenStyle}>
           <Link to="/" style={logoContainerStyle}>
             <div style={logoCircleStyle}>
-              <img 
-                src="/logo.png"
-                alt="Ste Flaviense Mayday Logo" 
-                style={{width: '40px', height: '40px', objectFit: 'contain'}}
-              />
+              FM
             </div>
             <h1 style={titleStyle}>Ste Flaviense Mayday</h1>
           </Link>
