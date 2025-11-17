@@ -102,14 +102,9 @@ const Header = () => {
           <Link to="/" style={logoContainerStyle}>
             <div style={logoCircleStyle}>
               <img 
-                src="/logo.svg"
+                src="/logo.png"
                 alt="Ste Flaviense Mayday Logo" 
                 style={{width: '40px', height: '40px', objectFit: 'contain'}}
-                onError={(e) => {
-                  // Fallback si le SVG ne charge pas
-                  e.target.onerror = null;
-                  e.target.src = '/logo.png';
-                }}
               />
             </div>
             <h1 style={titleStyle}>Ste Flaviense Mayday</h1>
