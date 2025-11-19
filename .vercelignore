@@ -1,0 +1,7 @@
+# Ne pas ignorer les images
+!public/images/**
+
+# Ignorer uniquement node_modules et autres
+node_modules
+.git
+*.log
