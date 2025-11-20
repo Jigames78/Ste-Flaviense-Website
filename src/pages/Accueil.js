@@ -1,6 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react'; // Ajout de hooks
 import { Link } from 'react-router-dom';
 import { services, testimonials, clients } from '../assets/data';
+import CountingStat from '../components/CountingStat'; // NOUVEAU: Import du composant
+
+// NOUVEAU COMPOSANT LOCAL POUR GÉRER L'AOS
+const AOSItem = ({ children, delay = '0s', style, className = '' }) => {
+    const ref = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.unobserve(entry.target);
+                }
+            },
+            { threshold: 0.2 }
+        );
+        const currentRef = ref.current; // Correction pour ESLint
+        if (currentRef) {
+            observer.observe(currentRef);
+        }
+        return () => {
+            if (currentRef) observer.unobserve(currentRef);
+        };
+    }, []);
+
+    return (
+        <div 
+            ref={ref}
+            className={`fade-in-up ${className} ${isVisible ? 'is-visible' : ''}`}
+            style={{ ...style, transitionDelay: delay }}
+        >
+            {children}
+        </div>
+    );
+};
+
 
 const Accueil = () => {
   const aboutSectionStyle = {
@@ -28,30 +65,8 @@ const Accueil = () => {
     gap: '2rem',
     marginTop: '4rem'
   };
-
-  const statStyle = {
-    textAlign: 'center'
-  };
-
-  const statNumberStyle = {
-    fontSize: 'clamp(3rem, 6vw, 4rem)',
-    fontWeight: 'bold',
-    color: '#0f766e',
-    marginBottom: '0.5rem'
-  };
-
-  const statLabelStyle = {
-    fontSize: 'clamp(0.875rem, 2vw, 1rem)',
-    color: '#4b5563',
-    fontWeight: '500'
-  };
-
-  const statLineStyle = {
-    width: '6rem',
-    height: '4px',
-    backgroundColor: '#0f766e',
-    margin: '1rem auto 0'
-  };
+  
+  // Suppression des styles statStyle, statNumberStyle, statLabelStyle, statLineStyle qui ne sont plus utilisés ici (CORRECTION ESLint)
 
   const servicesSectionStyle = {
     padding: '5rem 1rem',
@@ -215,10 +230,10 @@ const Accueil = () => {
   };
 
   const stats = [
-    { number: '30', label: 'Années de confiance' },
-    { number: '400', label: 'Clients satisfaits' },
-    { number: '35', label: 'Équipiers' },
-    { number: '600', label: 'Locaux propres' }
+    { number: 30, label: 'Années de confiance' },
+    { number: 400, label: 'Clients satisfaits' },
+    { number: 35, label: 'Équipiers' },
+    { number: 600, label: 'Locaux propres' }
   ];
 
   const commitments = [
@@ -340,12 +355,13 @@ const Accueil = () => {
           </div>
 
           <div style={statsContainerStyle}>
+            {/* UTILISATION DU NOUVEAU COMPOSANT DYNAMIQUE */}
             {stats.map((stat, index) => (
-              <div key={index} style={statStyle}>
-                <div style={statNumberStyle}>{stat.number}</div>
-                <div style={statLabelStyle}>{stat.label}</div>
-                <div style={statLineStyle}></div>
-              </div>
+              <CountingStat 
+                key={index} 
+                number={stat.number} 
+                label={stat.label} 
+              />
             ))}
           </div>
         </div>
@@ -371,14 +387,8 @@ const Accueil = () => {
               <div 
                 key={index} 
                 style={cardStyle}
-                onMouseEnter={(e) => {
-                  const img = e.currentTarget.querySelector('img');
-                  if (img) img.style.transform = 'scale(1.1)';
-                }}
-                onMouseLeave={(e) => {
-                  const img = e.currentTarget.querySelector('img');
-                  if (img) img.style.transform = 'scale(1)';
-                }}
+                // AJOUT DE LA CLASSE CSS. L'ancienne logique onMouseEnter/onMouseLeave a été retirée.
+                className='card-hover-effect'
               >
                 <img 
                   src={service.image} 
@@ -402,13 +412,17 @@ const Accueil = () => {
 
           <div style={commitmentsGridStyle}>
             {commitments.map((commitment, index) => (
-              <div key={index} style={commitmentCardStyle}>
+              <AOSItem 
+                key={index} 
+                delay={`${index * 0.1}s`} // Stagger animation
+                style={commitmentCardStyle}
+              >
                 <div style={iconContainerStyle}>
                   {commitment.icon}
                 </div>
                 <h3 style={commitmentTitleStyle}>{commitment.title}</h3>
                 <p style={commitmentTextStyle}>{commitment.text}</p>
-              </div>
+              </AOSItem>
             ))}
           </div>
         </div>

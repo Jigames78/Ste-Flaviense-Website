@@ -33,20 +33,16 @@ const Footer = () => {
     gap: '0.75rem',
     marginBottom: '1rem'
   };
-
-  const logoCircleStyle = {
+  
+  // NOUVEAU STYLE POUR L'IMAGE DU LOGO
+  const logoImageStyle = {
     width: '48px',
     height: '48px',
-    backgroundColor: '#0f766e',
+    objectFit: 'contain',
     borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-    color: 'white'
+    backgroundColor: '#0f766e', // Ajout d'un fond pour le logo si nécessaire
   };
+  // SUPPRESSION DE logoCircleStyle
 
   const companyNameStyle = {
     fontSize: '1.25rem',
@@ -138,11 +134,14 @@ const Footer = () => {
           <div style={topSectionStyle}>
             <div>
               <div style={logoSectionStyle}>
-                <div style={logoCircleStyle}>
-                  FM
-                </div>
+                {/* REMPLACEMENT DU DIV 'FM' PAR L'IMAGE */}
+                <img 
+                  src="/logo.png" 
+                  alt="Logo Ste Flaviense Mayday"
+                  style={logoImageStyle}
+                />
                 <div>
-                  <h3 style={companyNameStyle}>Ste Flavience Mayday</h3>
+                  <h3 style={companyNameStyle}>Ste Flaviense Mayday</h3>
                   <p style={taglineStyle}>Services de Nettoyage</p>
                 </div>
               </div>

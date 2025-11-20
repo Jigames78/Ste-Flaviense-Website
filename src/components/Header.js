@@ -44,19 +44,14 @@ const Header = () => {
     textDecoration: 'none'
   };
 
-  const logoCircleStyle = {
+  // NOUVEAU STYLE POUR L'IMAGE DU LOGO
+  const logoImageStyle = {
     width: '48px',
     height: '48px',
-    backgroundColor: '#0f766e',
-    borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-    color: 'white'
+    objectFit: 'contain',
+    borderRadius: '50%', 
   };
+  // SUPPRESSION DE logoCircleStyle
 
   const titleStyle = {
     fontSize: '1.5rem',
@@ -103,9 +98,12 @@ const Header = () => {
       <div style={containerStyle}>
         <div style={flexBetweenStyle}>
           <Link to="/" style={logoContainerStyle}>
-            <div style={logoCircleStyle}>
-              FM
-            </div>
+            {/* REMPLACEMENT DU DIV 'FM' PAR L'IMAGE */}
+            <img 
+              src="/logo.png" 
+              alt="Logo Ste Flaviense Mayday"
+              style={logoImageStyle}
+            />
             <h1 style={titleStyle}>Ste Flaviense Mayday</h1>
           </Link>
           

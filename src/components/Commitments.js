@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react'; // Ajout de hooks
 
 const Commitments = () => {
   const sectionStyle = {
@@ -47,6 +47,49 @@ const Commitments = () => {
     color: '#374151',
     lineHeight: '1.5'
   };
+
+  // NOUVEAU COMPOSANT LOCAL POUR GÉRER L'AOS
+  const AOSItem = ({ commitment, index }) => {
+        const ref = useRef(null);
+        const [isVisible, setIsVisible] = useState(false);
+
+        useEffect(() => {
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setIsVisible(true);
+                        observer.unobserve(entry.target);
+                    }
+                },
+                { threshold: 0.2 } // Déclenche l'animation lorsque 20% de l'élément est visible
+            );
+            const currentRef = ref.current; // Correction pour ESLint
+            if (currentRef) {
+                observer.observe(currentRef);
+            }
+            return () => {
+                if (currentRef) observer.unobserve(currentRef);
+            };
+        }, []);
+        
+        const delay = `${index * 0.1}s`; // Stagger animation
+
+        return (
+            <div 
+                key={index} 
+                ref={ref}
+                style={{ ...cardStyle, transitionDelay: delay }}
+                className={`fade-in-up ${isVisible ? 'is-visible' : ''}`}
+            >
+                <div style={iconContainerStyle}>
+                    {commitment.icon}
+                </div>
+                <h3 style={cardTitleStyle}>{commitment.title}</h3>
+                <p style={cardTextStyle}>{commitment.text}</p>
+            </div>
+        );
+    };
+
 
   const commitments = [
     {
@@ -98,13 +141,7 @@ const Commitments = () => {
 
         <div style={gridStyle}>
           {commitments.map((commitment, index) => (
-            <div key={index} style={cardStyle}>
-              <div style={iconContainerStyle}>
-                {commitment.icon}
-              </div>
-              <h3 style={cardTitleStyle}>{commitment.title}</h3>
-              <p style={cardTextStyle}>{commitment.text}</p>
-            </div>
+            <AOSItem key={index} commitment={commitment} index={index} /> // Utilisation de AOSItem
           ))}
         </div>
       </div>

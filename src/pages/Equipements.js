@@ -231,14 +231,7 @@ const Equipements = () => {
               <div key={index}>
                 <div 
                   style={cardImageStyle}
-                  onMouseEnter={(e) => {
-                    const img = e.currentTarget.querySelector('img');
-                    if (img) img.style.transform = 'scale(1.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    const img = e.currentTarget.querySelector('img');
-                    if (img) img.style.transform = 'scale(1)';
-                  }}
+                  className='card-hover-effect' // AJOUT DE LA CLASSE CSS
                 >
                   <img 
                     src={item.image}

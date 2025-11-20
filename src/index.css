@@ -25,7 +25,7 @@ input, textarea {
   font-family: inherit;
 }
 
-/* --- AJOUT POUR LES ANIMATIONS DES CARTES --- */
+/* --- AMÉLIORATION : ANIMATIONS DES CARTES --- */
 .card-hover-effect {
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Transition douce */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre par défaut légère */
@@ -35,4 +35,25 @@ input, textarea {
 .card-hover-effect:hover {
   transform: translateY(-5px) scale(1.02); /* Déplacement vers le haut et légère mise à l'échelle */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+}
+
+/* NOUVEL EFFET : ZOOM DE L'IMAGE AU SURVOL DU PARENT */
+.card-hover-effect:hover img {
+    transform: scale(1.1); /* Zoom de l'image */
+}
+
+.card-hover-effect img {
+    transition: transform 0.3s ease-out; /* Assurer une transition douce pour l'image */
+}
+
+/* --- NOUVEAU : ANIMATION ON SCROLL (AOS) --- */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transition douce */
+}
+
+.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }

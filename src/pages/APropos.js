@@ -1,4 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react'; 
+// REMOVED: import CountingStat from '../components/CountingStat'; 
+
+// NOUVEAU COMPOSANT LOCAL POUR GÉRER L'AOS
+const AOSItem = ({ children, delay = '0s', style, className = '' }) => {
+    const ref = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.unobserve(entry.target);
+                }
+            },
+            { threshold: 0.2 }
+        );
+        const currentRef = ref.current; // Correction pour ESLint
+        if (currentRef) {
+            observer.observe(currentRef);
+        }
+        return () => {
+            if (currentRef) observer.unobserve(currentRef);
+        };
+    }, []);
+
+    return (
+        <div 
+            ref={ref}
+            className={`fade-in-up ${className} ${isVisible ? 'is-visible' : ''}`}
+            style={{ ...style, transitionDelay: delay }}
+        >
+            {children}
+        </div>
+    );
+};
+
 
 const APropos = () => {
   const sectionStyle = {
@@ -74,6 +111,9 @@ const APropos = () => {
     lineHeight: '1.75'
   };
 
+  // REMOVED: statsContainerStyle, statStyle, statNumberStyle, statLabelStyle, statLineStyle, stats (comme demandé)
+
+
   return (
     <>
       <section style={{
@@ -86,7 +126,7 @@ const APropos = () => {
       }}>
         <img 
           src="/images/hero/hero-about.jpg"
-          alt="À propos de nous"
+          alt="À propos de nous - Camionnette de nettoyage devant un bâtiment"
           style={{
             position: 'absolute',
             inset: 0,
@@ -135,25 +175,28 @@ const APropos = () => {
             <div style={imageCardStyle}>
               <img 
                 src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop"
-                alt="Équipe de nettoyage"
+                alt="Équipe de nettoyage travaillant ensemble"
                 style={cardImageStyle}
               />
             </div>
             <div style={imageCardStyle}>
               <img 
                 src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=600&h=400&fit=crop"
-                alt="Nettoyage professionnel"
+                alt="Professionnel nettoyant une fenêtre"
                 style={cardImageStyle}
               />
             </div>
             <div style={imageCardStyle}>
               <img 
                 src="https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600&h=400&fit=crop"
-                alt="Matériel de nettoyage"
+                alt="Matériel de nettoyage industriel"
                 style={cardImageStyle}
               />
             </div>
           </div>
+
+          {/* BLOCK DE STATISTIQUES RETIRÉ */}
+
         </div>
       </section>
 
@@ -175,7 +218,7 @@ const APropos = () => {
             <div style={imageCardStyle}>
               <img 
                 src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=600&fit=crop"
-                alt="Professionnel au travail"
+                alt="Professionnel utilisant une machine de nettoyage"
                 style={cardImageStyle}
               />
             </div>
@@ -186,18 +229,24 @@ const APropos = () => {
       <section style={sectionStyle}>
         <div style={containerStyle}>
           <div style={twoColumnStyle}>
-            <div style={highlightBoxStyle}>
+            <AOSItem // NOUVEAU COMPOSANT
+              delay='0s'
+              style={highlightBoxStyle}
+            >
               <h3 style={highlightTitleStyle}>Notre Mission</h3>
               <p style={highlightTextStyle}>
                 Offrir des services de nettoyage industriel de qualité supérieure, en garantissant la propreté, la sécurité et le bien-être de nos clients tout en respectant l'environnement.
               </p>
-            </div>
-            <div style={highlightBoxStyle}>
+            </AOSItem>
+            <AOSItem // NOUVEAU COMPOSANT
+              delay='0.2s'
+              style={highlightBoxStyle}
+            >
               <h3 style={highlightTitleStyle}>Nos Valeurs</h3>
               <p style={highlightTextStyle}>
                 Excellence, intégrité, respect de l'environnement et engagement envers la satisfaction client sont au cœur de tout ce que nous faisons.
               </p>
-            </div>
+            </AOSItem>
           </div>
         </div>
       </section>

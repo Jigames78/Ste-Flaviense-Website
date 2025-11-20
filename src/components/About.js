@@ -1,4 +1,5 @@
 import React from 'react';
+import CountingStat from './CountingStat'; // IMPORT DU NOUVEAU COMPOSANT
 
 const About = () => {
   const sectionStyle = {
@@ -27,35 +28,11 @@ const About = () => {
     marginTop: '4rem'
   };
 
-  const statStyle = {
-    textAlign: 'center'
-  };
-
-  const statNumberStyle = {
-    fontSize: 'clamp(3rem, 6vw, 4rem)',
-    fontWeight: 'bold',
-    color: '#0f766e',
-    marginBottom: '0.5rem'
-  };
-
-  const statLabelStyle = {
-    fontSize: 'clamp(0.875rem, 2vw, 1rem)',
-    color: '#4b5563',
-    fontWeight: '500'
-  };
-
-  const statLineStyle = {
-    width: '6rem',
-    height: '4px',
-    backgroundColor: '#0f766e',
-    margin: '1rem auto 0'
-  };
-
   const stats = [
-    { number: '30', label: 'Années de confiance' },
-    { number: '400', label: 'Clients satisfaits' },
-    { number: '35', label: 'Équipiers' },
-    { number: '600', label: 'Locaux propres' }
+    { number: 30, label: 'Années de confiance' }, // Changé en nombre
+    { number: 400, label: 'Clients satisfaits' }, // Changé en nombre
+    { number: 35, label: 'Équipiers' }, // Changé en nombre
+    { number: 600, label: 'Locaux propres' } // Changé en nombre
   ];
 
   return (
@@ -81,11 +58,12 @@ const About = () => {
 
         <div style={statsContainerStyle}>
           {stats.map((stat, index) => (
-            <div key={index} style={statStyle}>
-              <div style={statNumberStyle}>{stat.number}</div>
-              <div style={statLabelStyle}>{stat.label}</div>
-              <div style={statLineStyle}></div>
-            </div>
+            // UTILISATION DU NOUVEAU COMPOSANT
+            <CountingStat 
+              key={index} 
+              number={stat.number} 
+              label={stat.label} 
+            />
           ))}
         </div>
       </div>

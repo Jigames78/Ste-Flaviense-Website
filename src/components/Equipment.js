@@ -188,7 +188,7 @@ const Equipment = () => {
                   {detail.icon}
                 </div>
                 <h4 style={detailTitleStyle}>{detail.title}</h4>
-                <p style={detailTextStyle}>{detail.text}</p>
+                  <p style={detailTextStyle}>{detail.text}</p>
               </div>
             ))}
           </div>
