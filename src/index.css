@@ -24,3 +24,15 @@ button {
 input, textarea {
   font-family: inherit;
 }
+
+/* --- AJOUT POUR LES ANIMATIONS DES CARTES --- */
+.card-hover-effect {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Transition douce */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre par défaut légère */
+  cursor: pointer;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-5px) scale(1.02); /* Déplacement vers le haut et légère mise à l'échelle */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+}

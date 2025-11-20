@@ -46,7 +46,6 @@ const Equipment = () => {
   const cardImageStyle = {
     overflow: 'hidden',
     borderRadius: '0.5rem',
-    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
     marginBottom: '1rem',
     height: '14rem'
   };
@@ -164,14 +163,8 @@ const Equipment = () => {
             <div key={index}>
               <div 
                 style={cardImageStyle}
-                onMouseEnter={(e) => {
-                  const img = e.currentTarget.querySelector('img');
-                  if (img) img.style.transform = 'scale(1.1)';
-                }}
-                onMouseLeave={(e) => {
-                  const img = e.currentTarget.querySelector('img');
-                  if (img) img.style.transform = 'scale(1)';
-                }}
+                // Suppression de l'ancienne logique de survol JS
+                className='card-hover-effect' // AJOUT DE LA CLASSE CSS
               >
                 <img 
                   src={item.image}

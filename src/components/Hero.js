@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'; // AJOUT DES HOOKS
 
 const Hero = () => {
+  // AJOUT: Logique Parallax
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  // FIN AJOUT
+
   const sectionStyle = {
     position: 'relative',
     height: '100vh',
@@ -16,7 +26,10 @@ const Hero = () => {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    zIndex: 0
+    zIndex: 0,
+    // MODIFICATION POUR PARALLAX
+    transform: `translateY(${offsetY * 0.4}px)`, 
+    transition: 'transform 0.1s ease-out',
   };
 
   const overlayStyle = {
