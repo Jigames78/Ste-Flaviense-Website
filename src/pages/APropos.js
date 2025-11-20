@@ -64,7 +64,8 @@ const APropos = () => {
 
   const gridStyle = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    // MODIFICATION: Réduction de minmax(300px, 1fr) à 250px
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
     gap: '3rem',
     marginTop: '3rem'
   };
@@ -88,7 +89,8 @@ const APropos = () => {
 
   const twoColumnStyle = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+    // MODIFICATION: Réduction de minmax(400px, 1fr) à 280px pour les petits écrans
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
     gap: '3rem',
     alignItems: 'center'
   };
@@ -229,7 +231,7 @@ const APropos = () => {
       <section style={sectionStyle}>
         <div style={containerStyle}>
           <div style={twoColumnStyle}>
-            <AOSItem // NOUVEAU COMPOSANT
+            <AOSItem 
               delay='0s'
               style={highlightBoxStyle}
             >
@@ -238,7 +240,7 @@ const APropos = () => {
                 Offrir des services de nettoyage industriel de qualité supérieure, en garantissant la propreté, la sécurité et le bien-être de nos clients tout en respectant l'environnement.
               </p>
             </AOSItem>
-            <AOSItem // NOUVEAU COMPOSANT
+            <AOSItem 
               delay='0.2s'
               style={highlightBoxStyle}
             >

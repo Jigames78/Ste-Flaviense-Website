@@ -44,14 +44,12 @@ const Header = () => {
     textDecoration: 'none'
   };
 
-  // NOUVEAU STYLE POUR L'IMAGE DU LOGO
   const logoImageStyle = {
     width: '48px',
     height: '48px',
     objectFit: 'contain',
     borderRadius: '50%', 
   };
-  // SUPPRESSION DE logoCircleStyle
 
   const titleStyle = {
     fontSize: '1.5rem',
@@ -98,13 +96,15 @@ const Header = () => {
       <div style={containerStyle}>
         <div style={flexBetweenStyle}>
           <Link to="/" style={logoContainerStyle}>
-            {/* REMPLACEMENT DU DIV 'FM' PAR L'IMAGE */}
             <img 
               src="/logo.png" 
               alt="Logo Ste Flaviense Mayday"
               style={logoImageStyle}
             />
-            <h1 style={titleStyle}>Ste Flaviense Mayday</h1>
+            {/* MODIFICATION : Titre conditionnel pour écrans étroits */}
+            <h1 style={titleStyle}>
+              {window.innerWidth < 768 ? 'Flaviense Mayday' : 'Ste Flaviense Mayday'}
+            </h1>
           </Link>
           
           <nav style={{...navStyle, display: window.innerWidth < 768 ? 'none' : 'flex'}}>
