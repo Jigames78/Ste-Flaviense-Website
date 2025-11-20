@@ -52,7 +52,8 @@ const Header = () => {
   };
 
   const titleStyle = {
-    fontSize: '1.5rem',
+    // MODIFICATION: Utilisation de clamp() pour un redimensionnement fluide sur mobile
+    fontSize: 'clamp(1rem, 4vw, 1.5rem)', 
     fontWeight: 'bold',
     color: '#115e59'
   };
@@ -101,9 +102,9 @@ const Header = () => {
               alt="Logo Ste Flaviense Mayday"
               style={logoImageStyle}
             />
-            {/* MODIFICATION : Titre conditionnel pour écrans étroits */}
+            {/* CORRECTION : Titre complet rétabli */}
             <h1 style={titleStyle}>
-              {window.innerWidth < 768 ? 'Flaviense Mayday' : 'Ste Flaviense Mayday'}
+              Ste Flaviense Mayday
             </h1>
           </Link>
           
